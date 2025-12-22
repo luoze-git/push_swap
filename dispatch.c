@@ -1,4 +1,4 @@
-# include "p_s.h"
+#include "push_swap.h"
 
 
 void dispatch_sort(t_stack *a, t_stack *b)

@@ -1,4 +1,4 @@
-#include "p_s.h"
+#include "push_swap.h"
 
 // internal swap func
 static void swap(t_stack *s)

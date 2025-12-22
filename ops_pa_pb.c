@@ -1,5 +1,4 @@
-# include "p_s.h"
-
+#include "push_swap.h"
 // internal func for pa/pb : push to a from b's top / push to b from a's top.
 // static - cannot be called else where
 static void push(t_stack *src, t_stack *dst)
