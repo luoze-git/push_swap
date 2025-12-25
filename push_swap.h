@@ -39,6 +39,7 @@ void stack_init(t_stack *s, char name);
 t_node *node_new(int value);
 void stack_push(t_stack *s, t_node *n);
 t_node *stack_pop(t_stack *s);
+void free_stack(t_stack *s);
 
 int is_sorted(t_stack *a);
 void stack_builder(t_stack *stack, int *int_list, int nint, char name);

@@ -46,6 +46,20 @@ void stack_builder(t_stack *stack, int *int_list, int nint, char name)
     return;
 }
 
+
+void free_stack(t_stack *s)
+{
+    t_node *tmp;
+
+    while (s->top)
+    {
+        tmp = s->top->next;
+        free(s->top);
+        s->top = tmp;
+    }
+}
+
+
 // put a given node to the top of a stack
 // mini-step 1/2 for ops
 void stack_push(t_stack *s, t_node *n)
