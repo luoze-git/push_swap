@@ -84,7 +84,7 @@ static void parse_one_int_element(
 }
 
 // free a NULL terminated double pointer
-static void ft_free_split(char **split)
+void ft_free_split(char **split)
 {
     int i;
 
@@ -105,7 +105,6 @@ int *parse_integer_input(int argc, char **argv, int *out_nb_count)
     int *int_list;
     int cnt_nb;
     int i;
-    long v;
     char **split;
     int j;
 

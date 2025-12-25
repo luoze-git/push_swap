@@ -4,6 +4,7 @@
 #include <stdlib.h>
 #include <unistd.h>
 #include <limits.h>
+#include <stdint.h>
 typedef struct s_node
 {
     int value;
@@ -40,11 +41,9 @@ void stack_push(t_stack *s, t_node *n);
 t_node *stack_pop(t_stack *s);
 
 int is_sorted(t_stack *a);
-int stack_size(t_stack *s);
 void stack_builder(t_stack *stack, int *int_list, int nint, char name);
 void normalize_values(int *int_list, int nint);
 void sort_big(t_stack *a, t_stack *b);
-void sort_5(t_stack *a, t_stack *b);
 
 int arg_is_valid_number(char *s);
 void set_stderr_exit(void);
@@ -52,7 +51,12 @@ long ft_atolll(char *s);
 int has_duplicate(int *arr, int size, int value);
 int *parse_integer_input(int argc, char **argv, int *out_nb_count);
 
-/*parse*/
+/*libft functions*/
+void ft_bzero(void *s, size_t n);
+void *ft_calloc(size_t count, size_t size);
+char *ft_substr(char const *s, unsigned int start, size_t len);
+char *ft_strdup(const char *s);
+size_t ft_strlen(const char *s);
 void ft_free_split(char **ptr);
 char **ft_split(char const *s, char c);
 

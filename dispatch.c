@@ -3,14 +3,9 @@
 
 void dispatch_sort(t_stack *a, t_stack *b)
 {
-
-    int n;
-
     if (is_sorted(a))
         return;
-    n = stack_size(a);
-
-    if (n <= 1)
+    if (a->size <= 1)
         return;
     sort_big(a, b);
     return;

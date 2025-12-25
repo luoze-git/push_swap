@@ -14,7 +14,7 @@ static int get_max_bits(int max_value)
 // outer loop : per bit;
 // inner loop 1: per element in the stack a
 // idea: push the 0s to b , after loop 1, push them back to a. this makes 0s, the smaller ones, stay on top.
-void sort_big_radix(t_stack *a, t_stack *b)
+void sort_big(t_stack *a, t_stack *b)
 {
     int max_bits;
     int bit;
