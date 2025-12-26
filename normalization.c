@@ -1,3 +1,15 @@
+/* ************************************************************************** */
+/*                                                                            */
+/*                                                        :::      ::::::::   */
+/*   normalization.c                                    :+:      :+:    :+:   */
+/*                                                    +:+ +:+         +:+     */
+/*   By: luozguo <luozguo@student.42.fr>            +#+  +:+       +#+        */
+/*                                                +#+#+#+#+#+   +#+           */
+/*   Created: 2025/12/26 15:01:03 by luozguo           #+#    #+#             */
+/*   Updated: 2025/12/26 15:08:36 by luozguo          ###   ########.fr       */
+/*                                                                            */
+/* ************************************************************************** */
+
 #include "push_swap.h"
 
 // naive selection sort - compare each to all the others
@@ -36,8 +48,7 @@ static int	find_index(int *sorted, int n, int value)
 			return (i);
 		i++;
 	}
-	return (-1); // should never happen / just syntax requirement
-}
+	return (-1);
 
 void	normalize_values(int *int_list, int nint)
 {
@@ -54,11 +65,8 @@ void	normalize_values(int *int_list, int nint)
 		sorted[i] = int_list[i];
 		i++;
 	}
-	// sort it inplace - the index of INTs is what matters now in "sorted"
 	sort_int_array(sorted, nint);
 	i = 0;
-	// update the original list with their rank(the index in ascending order)
-	// original value : index is one to one.so this works . Algorithm!
 	while (i < nint)
 	{
 		int_list[i] = find_index(sorted, nint, int_list[i]);

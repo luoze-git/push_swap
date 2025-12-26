@@ -1,3 +1,15 @@
+/* ************************************************************************** */
+/*                                                                            */
+/*                                                        :::      ::::::::   */
+/*   main.c                                             :+:      :+:    :+:   */
+/*                                                    +:+ +:+         +:+     */
+/*   By: luozguo <luozguo@student.42.fr>            +#+  +:+       +#+        */
+/*                                                +#+#+#+#+#+   +#+           */
+/*   Created: 2025/12/26 15:01:07 by luozguo           #+#    #+#             */
+/*   Updated: 2025/12/26 15:08:47 by luozguo          ###   ########.fr       */
+/*                                                                            */
+/* ************************************************************************** */
+
 #include "push_swap.h"
 
 int	main(int argc, char **argv)
@@ -6,11 +18,8 @@ int	main(int argc, char **argv)
 	t_stack a;
 	t_stack b;
 	int *int_list;
-	// parse -> returned the parsed int * with size
 	int_list = parse_integer_input(argc, argv, &size);
 	normalize_values(int_list, size);
-
-	// build stack
 	stack_builder(&a, int_list, size, 'a');
 	stack_builder(&b, NULL, 0, 'b');
 	free(int_list);

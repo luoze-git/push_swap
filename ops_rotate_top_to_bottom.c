@@ -1,3 +1,15 @@
+/* ************************************************************************** */
+/*                                                                            */
+/*                                                        :::      ::::::::   */
+/*   ops_rotate_top_to_bottom.c                         :+:      :+:    :+:   */
+/*                                                    +:+ +:+         +:+     */
+/*   By: luozguo <luozguo@student.42.fr>            +#+  +:+       +#+        */
+/*                                                +#+#+#+#+#+   +#+           */
+/*   Created: 2025/12/26 15:01:00 by luozguo           #+#    #+#             */
+/*   Updated: 2025/12/26 15:08:20 by luozguo          ###   ########.fr       */
+/*                                                                            */
+/* ************************************************************************** */
+
 #include "push_swap.h"
 
 static void	rotate(t_stack *s)
@@ -6,14 +18,14 @@ static void	rotate(t_stack *s)
 	t_node	*last;
 
 	if (s->size < 2)
-		return ;           // no effect if stack has 0 or 1 element
-	first = s->top;       // store current top node
-	s->top = first->next; // second node becomes new top
-	first->next = NULL;   // detach old top from the list
-	last = s->top;        // start from new top
+		return ;       
+	first = s->top;      
+	s->top = first->next; 
+	first->next = NULL;  
+	last = s->top;      
 	while (last->next)
-		last = last->next; // walk to the last node
-	last->next = first;    // move old top to the bottom
+		last = last->next; 
+	last->next = first;   
 }
 
 void	ra(t_stack *a)

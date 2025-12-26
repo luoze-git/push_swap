@@ -1,3 +1,15 @@
+/* ************************************************************************** */
+/*                                                                            */
+/*                                                        :::      ::::::::   */
+/*   dispatch.c                                         :+:      :+:    :+:   */
+/*                                                    +:+ +:+         +:+     */
+/*   By: luozguo <luozguo@student.42.fr>            +#+  +:+       +#+        */
+/*                                                +#+#+#+#+#+   +#+           */
+/*   Created: 2025/12/26 14:59:30 by luozguo           #+#    #+#             */
+/*   Updated: 2025/12/26 15:06:55 by luozguo          ###   ########.fr       */
+/*                                                                            */
+/* ************************************************************************** */
+
 #include "push_swap.h"
 
 void	dispatch_sort(t_stack *a, t_stack *b)
@@ -15,13 +27,13 @@ int	is_sorted(t_stack *a)
 	t_node	*cur;
 
 	if (a->size < 2)
-		return (1); // empty or single-element stack is sorted
-	cur = a->top;   // start from top of stack
+		return (1);
+	cur = a->top;  
 	while (cur->next)
 	{
 		if (cur->value > cur->next->value)
-			return (0);  // found a descending pair → not sorted
-		cur = cur->next; // move to next node
+			return (0);  
+		cur = cur->next; 
 	}
-	return (1); // reached end with no violations → sorted
+	return (1); 
 }

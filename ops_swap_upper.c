@@ -1,3 +1,15 @@
+/* ************************************************************************** */
+/*                                                                            */
+/*                                                        :::      ::::::::   */
+/*   ops_swap_upper.c                                   :+:      :+:    :+:   */
+/*                                                    +:+ +:+         +:+     */
+/*   By: luozguo <luozguo@student.42.fr>            +#+  +:+       +#+        */
+/*                                                +#+#+#+#+#+   +#+           */
+/*   Created: 2025/12/26 15:00:37 by luozguo           #+#    #+#             */
+/*   Updated: 2025/12/26 15:07:47 by luozguo          ###   ########.fr       */
+/*                                                                            */
+/* ************************************************************************** */
+
 #include "push_swap.h"
 
 // internal swap func
@@ -10,9 +22,9 @@ static void	swap(t_stack *s)
 		return ;
 	first = s->top;
 	second = first->next;
-	first->next = second->next; // relink only the next part
+	first->next = second->next;
 	second->next = first;
-	s->top = second; // update the head node
+	s->top = second;
 }
 
 void	sa(t_stack *a)

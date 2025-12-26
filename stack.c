@@ -1,3 +1,15 @@
+/* ************************************************************************** */
+/*                                                                            */
+/*                                                        :::      ::::::::   */
+/*   stack.c                                            :+:      :+:    :+:   */
+/*                                                    +:+ +:+         +:+     */
+/*   By: luozguo <luozguo@student.42.fr>            +#+  +:+       +#+        */
+/*                                                +#+#+#+#+#+   +#+           */
+/*   Created: 2025/12/26 15:00:24 by luozguo           #+#    #+#             */
+/*   Updated: 2025/12/26 15:07:21 by luozguo          ###   ########.fr       */
+/*                                                                            */
+/* ************************************************************************** */
+
 #include "push_swap.h"
 
 // initiate name latere???
@@ -36,11 +48,9 @@ void	stack_builder(t_stack *stack, int *int_list, int nint, char name)
 	i++;
 	while (i < nint)
 	{
-		// build node with value
 		cur->next = node_new(int_list[i]);
 		cur = cur->next;
 		stack->size++;
-		// link node to stack
 		i++;
 	}
 	return ;
