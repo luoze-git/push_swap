@@ -6,7 +6,7 @@
 /*   By: luozguo <luozguo@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/12/26 15:20:36 by luozguo           #+#    #+#             */
-/*   Updated: 2025/12/26 17:46:09 by luozguo          ###   ########.fr       */
+/*   Updated: 2025/12/26 18:05:25 by luozguo          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -48,11 +48,6 @@ int	arg_is_valid_number(char *s)
 	return (1);
 }
 
-void	set_stderr_exit(void)
-{
-	write(2, "Error\n", 6);
-	exit(1);
-}
 void fatal_exit(t_stack *a, t_stack *b, int *int_list)
 {
     if (a)

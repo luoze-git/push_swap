@@ -6,7 +6,7 @@
 /*   By: luozguo <luozguo@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/12/26 15:01:03 by luozguo           #+#    #+#             */
-/*   Updated: 2025/12/26 17:29:40 by luozguo          ###   ########.fr       */
+/*   Updated: 2025/12/26 18:07:48 by luozguo          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -58,7 +58,7 @@ void normalize_values(int *int_list, int nint)
 
 	sorted = malloc(sizeof(int) * nint);
 	if (!sorted)
-		pre_exit_parsing(NULL, int_list);
+		fatal_exit(NULL , NULL, int_list);
 	i = 0;
 	while (i < nint)
 	{

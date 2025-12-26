@@ -6,7 +6,7 @@
 /*   By: luozguo <luozguo@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/12/26 15:00:24 by luozguo           #+#    #+#             */
-/*   Updated: 2025/12/26 17:36:20 by luozguo          ###   ########.fr       */
+/*   Updated: 2025/12/26 18:04:32 by luozguo          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -68,7 +68,9 @@ void pre_exit_stack(t_stack *s , int* int_list)
 void free_stack(t_stack *s)
 {
 	t_node *tmp;
-
+	
+	if (!s)
+		return;
 	while (s->top)
 	{
 		tmp = s->top->next;

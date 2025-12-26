@@ -6,7 +6,7 @@
 /*   By: luozguo <luozguo@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/12/26 15:00:46 by luozguo           #+#    #+#             */
-/*   Updated: 2025/12/26 17:29:40 by luozguo          ###   ########.fr       */
+/*   Updated: 2025/12/26 18:07:17 by luozguo          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -61,6 +61,7 @@ void stack_builder(t_stack *stack, int *int_list, int nint,
 void normalize_values(int *int_list, int nint);
 void sort_big_radix(t_stack *a, t_stack *b);
 
+void fatal_exit(t_stack *a, t_stack *b, int *int_list);
 int arg_is_valid_number(char *s);
 void set_stderr_exit(void);
 void pre_exit_parsing(char **split, int *int_list);
