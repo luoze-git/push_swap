@@ -6,7 +6,7 @@
 /*   By: luozguo <luozguo@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/12/26 15:00:58 by luozguo           #+#    #+#             */
-/*   Updated: 2025/12/26 15:24:59 by luozguo          ###   ########.fr       */
+/*   Updated: 2025/12/26 16:13:47 by luozguo          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -53,18 +53,28 @@ int	has_duplicate(int *arr, int size, int value)
 	return (0);
 }
 
-static void	parse_one_int_element(char *token, int *int_list, int *cnt_nb)
+static int	parse_one_int_element(char *token, int *int_list, int *cnt_nb)
 {
 	long	v;
 
 	if (!arg_is_valid_number(token))
-		set_stderr_exit();
+		return 0;
 	v = ft_atolll(token);
 	if (v < INT_MIN || v > INT_MAX)
-		set_stderr_exit();
+		return 0;
 	if (has_duplicate(int_list, *cnt_nb, (int)v))
-		set_stderr_exit();
+		return 0;
+	if (*cnt_nb >= 1000)
+		return 0;
 	int_list[(*cnt_nb)++] = (int)v;
+	return 1;
+}
+
+void pre_exit(char **split, int *int_list)
+{
+    ft_free_split(split);
+    free(int_list);
+    set_stderr_exit();
 }
 
 // only allocate at most for 1000 int length of input
@@ -78,17 +88,18 @@ int	*parse_integer_input(int argc, char **argv, int *out_nb_count)
 
 	int_list = malloc(sizeof(int) * 1000);
 	if (!int_list)
-		set_stderr_exit();
+		pre_exit(NULL, NULL);
 	cnt_nb = 0;
 	i = 1;
 	while (i < argc)
 	{
 		split = ft_split(argv[i], ' ');
-		if (!split)
-			set_stderr_exit();
+		if (!split || !split[0])
+			pre_exit(split, int_list);
 		j = 0;
 		while (split[j])
-			parse_one_int_element(split[j++], int_list, &cnt_nb);
+			if (!parse_one_int_element(split[j++], int_list, &cnt_nb))
+				pre_exit(split, int_list);
 		ft_free_split(split);
 		i++;
 	}
