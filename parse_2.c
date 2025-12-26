@@ -1,39 +1,55 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   dispatch.c                                         :+:      :+:    :+:   */
+/*   parse_2.c                                          :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: luozguo <luozguo@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2025/12/26 14:59:30 by luozguo           #+#    #+#             */
-/*   Updated: 2025/12/26 15:06:55 by luozguo          ###   ########.fr       */
+/*   Created: 2025/12/26 15:20:36 by luozguo           #+#    #+#             */
+/*   Updated: 2025/12/26 15:21:33 by luozguo          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "push_swap.h"
 
-void	dispatch_sort(t_stack *a, t_stack *b)
+// free a NULL terminated double pointer
+void	ft_free_split(char **split)
 {
-	if (is_sorted(a))
+	int	i;
+
+	if (!split)
 		return ;
-	if (a->size <= 1)
-		return ;
-	sort_big_radix(a, b);
-	return ;
+	i = 0;
+	while (split[i])
+	{
+		free(split[i]);
+		i++;
+	}
+	free(split);
 }
 
-int	is_sorted(t_stack *a)
+int	arg_is_valid_number(char *s)
 {
-	t_node	*cur;
+	int	i;
 
-	if (a->size < 2)
-		return (1);
-	cur = a->top;
-	while (cur->next)
+	i = 0;
+	if (!s || s[0] == '\0')
+		return (0);
+	if (s[i] == '+' || s[i] == '-')
+		i++;
+	if (s[i] == '\0')
+		return (0);
+	while (s[i])
 	{
-		if (cur->value > cur->next->value)
+		if (s[i] < '0' || s[i] > '9')
 			return (0);
-		cur = cur->next;
+		i++;
 	}
 	return (1);
+}
+
+void	set_stderr_exit(void)
+{
+	write(2, "Error\n", 6);
+	exit(1);
 }

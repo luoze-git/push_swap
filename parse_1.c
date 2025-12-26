@@ -1,42 +1,16 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   parse.c                                            :+:      :+:    :+:   */
+/*   parse_1.c                                          :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: luozguo <luozguo@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/12/26 15:00:58 by luozguo           #+#    #+#             */
-/*   Updated: 2025/12/26 15:00:59 by luozguo          ###   ########.fr       */
+/*   Updated: 2025/12/26 15:24:59 by luozguo          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "push_swap.h"
-
-int	arg_is_valid_number(char *s)
-{
-	int	i;
-
-	i = 0;
-	if (!s || s[0] == '\0')
-		return (0);
-	if (s[i] == '+' || s[i] == '-')
-		i++;
-	if (s[i] == '\0')
-		return (0);
-	while (s[i])
-	{
-		if (s[i] < '0' || s[i] > '9')
-			return (0);
-		i++;
-	}
-	return (1);
-}
-
-void	set_stderr_exit(void)
-{
-	write(2, "Error\n", 6);
-	exit(1);
-}
 
 long	ft_atolll(char *s)
 {
@@ -93,22 +67,6 @@ static void	parse_one_int_element(char *token, int *int_list, int *cnt_nb)
 	int_list[(*cnt_nb)++] = (int)v;
 }
 
-// free a NULL terminated double pointer
-void	ft_free_split(char **split)
-{
-	int	i;
-
-	if (!split)
-		return ;
-	i = 0;
-	while (split[i])
-	{
-		free(split[i]);
-		i++;
-	}
-	free(split);
-}
-
 // only allocate at most for 1000 int length of input
 int	*parse_integer_input(int argc, char **argv, int *out_nb_count)
 {
@@ -130,10 +88,7 @@ int	*parse_integer_input(int argc, char **argv, int *out_nb_count)
 			set_stderr_exit();
 		j = 0;
 		while (split[j])
-		{
-			parse_one_int_element(split[j], int_list, &cnt_nb);
-			j++;
-		}
+			parse_one_int_element(split[j++], int_list, &cnt_nb);
 		ft_free_split(split);
 		i++;
 	}

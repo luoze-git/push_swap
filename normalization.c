@@ -6,7 +6,7 @@
 /*   By: luozguo <luozguo@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/12/26 15:01:03 by luozguo           #+#    #+#             */
-/*   Updated: 2025/12/26 15:08:36 by luozguo          ###   ########.fr       */
+/*   Updated: 2025/12/26 15:29:51 by luozguo          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -49,6 +49,7 @@ static int	find_index(int *sorted, int n, int value)
 		i++;
 	}
 	return (-1);
+}
 
 void	normalize_values(int *int_list, int nint)
 {
@@ -59,7 +60,6 @@ void	normalize_values(int *int_list, int nint)
 	if (!sorted)
 		set_stderr_exit();
 	i = 0;
-	// copy the int list
 	while (i < nint)
 	{
 		sorted[i] = int_list[i];

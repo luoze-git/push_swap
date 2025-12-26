@@ -1,48 +1,37 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ops_rotate_top_to_bottom.c                         :+:      :+:    :+:   */
+/*   stack_basic_op.c                                   :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: luozguo <luozguo@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2025/12/26 15:01:00 by luozguo           #+#    #+#             */
-/*   Updated: 2025/12/26 15:08:20 by luozguo          ###   ########.fr       */
+/*   Created: 2025/12/26 15:18:14 by luozguo           #+#    #+#             */
+/*   Updated: 2025/12/26 15:18:26 by luozguo          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "push_swap.h"
 
-static void	rotate(t_stack *s)
+// put a given node to the top of a stack
+// mini-step 1/2 for ops
+void	stack_push(t_stack *s, t_node *n)
 {
-	t_node	*first;
-	t_node	*last;
-
-	if (s->size < 2)
-		return ;
-	first = s->top;
-	s->top = first->next;
-	first->next = NULL;
-	last = s->top;
-	while (last->next)
-		last = last->next;
-	last->next = first;
+	n->next = s->top;
+	s->top = n;
+	s->size++;
 }
 
-void	ra(t_stack *a)
+// pop a node from a stack
+// mini-step 2/2 for ops
+t_node	*stack_pop(t_stack *s)
 {
-	rotate(a);
-	write(1, "ra\n", 3);
-}
+	t_node	*n;
 
-void	rb(t_stack *b)
-{
-	rotate(b);
-	write(1, "rb\n", 3);
-}
-
-void	rr(t_stack *a, t_stack *b)
-{
-	rotate(a);
-	rotate(b);
-	write(1, "rr\n", 3);
+	if (s->size == 0)
+		return (NULL);
+	n = s->top;
+	s->top = n->next;
+	n->next = NULL;
+	s->size--;
+	return (n);
 }

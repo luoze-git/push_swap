@@ -6,13 +6,12 @@
 /*   By: luozguo <luozguo@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/12/26 15:00:24 by luozguo           #+#    #+#             */
-/*   Updated: 2025/12/26 15:07:21 by luozguo          ###   ########.fr       */
+/*   Updated: 2025/12/26 15:18:44 by luozguo          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "push_swap.h"
 
-// initiate name latere???
 void	stack_init(t_stack *s, char name)
 {
 	s->top = NULL;
@@ -68,26 +67,18 @@ void	free_stack(t_stack *s)
 	}
 }
 
-// put a given node to the top of a stack
-// mini-step 1/2 for ops
-void	stack_push(t_stack *s, t_node *n)
+int	is_stack_sorted(t_stack *s)
 {
-	n->next = s->top;
-	s->top = n;
-	s->size++;
-}
+	t_node	*cur;
 
-// pop a node from a stack
-// mini-step 2/2 for ops
-t_node	*stack_pop(t_stack *s)
-{
-	t_node	*n;
-
-	if (s->size == 0)
-		return (NULL);
-	n = s->top;
-	s->top = n->next;
-	n->next = NULL;
-	s->size--;
-	return (n);
+	if (s->size <= 1)
+		return (1);
+	cur = s->top;
+	while (cur->next)
+	{
+		if (cur->value > cur->next->value)
+			return (0);
+		cur = cur->next;
+	}
+	return (1);
 }
