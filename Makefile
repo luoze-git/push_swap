@@ -6,7 +6,7 @@
 #    By: luozguo <luozguo@student.42.fr>            +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2025/12/26 15:01:05 by luozguo           #+#    #+#              #
-#    Updated: 2025/12/26 15:01:06 by luozguo          ###   ########.fr        #
+#    Updated: 2025/12/26 15:31:32 by luozguo          ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -16,8 +16,10 @@ CC = cc
 CFLAGS = -Wall -Wextra -Werror
 
 SRC = main.c \
-      parse.c \
+      parse_1.c \
+      parse_2.c \
       stack.c \
+      stack_basic_op.c \
       dispatch.c \
       ops_push_to_another.c \
       ops_rotate_top_to_bottom.c \
